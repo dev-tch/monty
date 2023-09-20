@@ -26,7 +26,7 @@ if (ac != 2)
 stream = fopen(argv[1], "r");
 if (stream == NULL)
 {
-	fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
+	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 	exit(EXIT_FAILURE);
 }
 

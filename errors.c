@@ -16,6 +16,6 @@ exit(EXIT_FAILURE);
 */
 void push_err(int line_number)
 {
-fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+fprintf(stderr, "L%d: usage: push integer\n", line_number);
 exit(EXIT_FAILURE);
 }
