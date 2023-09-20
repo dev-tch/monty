@@ -1,5 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
+#include "list.h"
+/*libraries*/
+#include <stdlib.h>
+#include <stdio.h>
+#define MAX_LINE_LENGTH 1024
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -29,4 +34,9 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+List *add_token_to_list(List **head, char *str);
+void cleanupList(List **head);
+void handle_opcode(stack_t **stack, List *list_tok, unsigned int line_number);
+extern char *data_stack;
 #endif
