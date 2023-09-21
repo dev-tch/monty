@@ -34,8 +34,6 @@ if (stream == NULL)
 
 while (fgets(line_buffer, sizeof(line_buffer), stream))
 {
-	if (line_buffer[0] == '\n' || line_buffer[0] == '#')
-		continue;
 	numline++;
 	token = strtok(line_buffer, sep);
 	while (token != NULL)
