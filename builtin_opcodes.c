@@ -31,8 +31,8 @@ void add_nodeint_end(stack_t **stack, unsigned int line_number)
 	new_node->n = data;
 	if (*stack == NULL)
 	{
-		new_node->prev = NULL;
 		*stack = new_node;
+		new_node->prev = NULL;
 		new_node->next = NULL;
 	}
 	else
@@ -65,6 +65,27 @@ while (temp != NULL)
 }
 }
 /**
+* print_top_node  - print top node
+* @stack: doublylist stack
+* @li: number of line the instruction exist
+* Return: void
+*/
+void print_top_node(stack_t **stack, unsigned int li)
+{
+stack_t *temp = *stack;
+
+if (!temp)
+{
+	pint_err(li);
+}
+else
+{
+	fprintf(stderr, "%d\n", temp->n);
+}
+
+}
+
+/**
 * handle_opcode  - controller to excute function pointers
 * @stack: doublylist stack
 * @line_number: number of line the instruction exist
@@ -76,7 +97,8 @@ void handle_opcode(stack_t **stack,  unsigned int line_number)
 	int i = 0, valid = 0;
 	instruction_t ops[] = {
 		{"push", add_nodeint_end},
-		{"pall", print_stack}
+		{"pall", print_stack},
+		{"pint", print_top_node}
 	};
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)

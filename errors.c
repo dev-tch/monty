@@ -35,3 +35,15 @@ void push_err404(int line_number)
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, pb);
 	exit(EXIT_FAILURE);
 }
+
+/**
+* pint_err - error for invalid pint opcode
+* @line_number: number of line the instruction exist
+* Return: void
+*/
+void pint_err(int line_number)
+{
+	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+	exit(EXIT_FAILURE);
+}
+
