@@ -48,3 +48,15 @@ void empty_err(int line_number, char *msg)
 	exit(EXIT_FAILURE);
 }
 
+/**
+* short_err - error for less elmements in  stack
+* @line_number: number of line the instruction exist
+* @msg: opcode
+* Return: void
+*/
+void short_err(int line_number, char *msg)
+{
+	fprintf(stderr, "L%d: can't %s, stack too short\n", line_number, msg);
+	exit(EXIT_FAILURE);
+}
+

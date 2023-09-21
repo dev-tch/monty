@@ -1,4 +1,4 @@
-#include "monty.h"
+#include "more_builtin.h"
 #include "errors.h"
 
 /**
@@ -118,7 +118,8 @@ void handle_opcode(stack_t **stack,  unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", add_nodeint_end},
 		{"pall", print_stack},
-		{"pint", print_top_node}
+		{"pint", print_top_node},
+		{"swap", swap_top_node}
 	};
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)
