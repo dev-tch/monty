@@ -120,7 +120,8 @@ void handle_opcode(stack_t **stack,  unsigned int line_number)
 		{"pall", print_stack},
 		{"pint", print_top_node},
 		{"swap", swap_top_node},
-		{"add", add_sum_top}
+		{"add", add_sum_top},
+		{"nope", do_nothing}
 	};
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)

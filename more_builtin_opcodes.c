@@ -50,3 +50,14 @@ else
 }
 
 }
+/**
+* do_nothing - nothing to make
+* @stack: doublylist
+* @li: line number
+* Return: void
+*/
+void do_nothing(stack_t **stack, unsigned int li)
+{
+	(void)stack;
+	(void)li;
+}
