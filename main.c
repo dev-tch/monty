@@ -31,7 +31,8 @@ if (stream == NULL)
 	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 	exit(EXIT_FAILURE);
 }
-
+/*init the buffer line*/
+memset(line_buffer, 0, MAX_LINE_LENGTH);
 while (fgets(line_buffer, sizeof(line_buffer), stream))
 {
 	numline++;
@@ -48,8 +49,11 @@ while (fgets(line_buffer, sizeof(line_buffer), stream))
 		handle_opcode(&stack,  numline);
 		cleanupList(&list_tok);
 	}
+	/*clear the line*/
+	memset(line_buffer, 0, MAX_LINE_LENGTH);
 }
 free_dlistint(stack);
+fclose(stream); /*Close the stream file*/
 return (0);
 }
 
