@@ -76,7 +76,7 @@ stack_t *temp = *stack;
 
 if (!temp)
 {
-	pint_err(li);
+	empty_err(li, "pint");
 }
 else
 {
@@ -85,6 +85,26 @@ else
 
 }
 
+/**
+* remove_top_node  - delete top node
+* @stack: doublylist stack
+* @li: number of line the instruction exist
+* Return: void
+*/
+void remove_top_node(stack_t **stack, unsigned int li)
+{
+stack_t *temp = *stack;
+
+if (!temp)
+{
+	empty_err(li, "pop");
+}
+else
+{
+	free(temp);
+}
+
+}
 /**
 * handle_opcode  - controller to excute function pointers
 * @stack: doublylist stack

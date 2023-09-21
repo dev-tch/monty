@@ -37,13 +37,14 @@ void push_err404(int line_number)
 }
 
 /**
-* pint_err - error for invalid pint opcode
+* empty_err - error for empty stack
 * @line_number: number of line the instruction exist
+* @msg: opcode
 * Return: void
 */
-void pint_err(int line_number)
+void empty_err(int line_number, char *msg)
 {
-	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+	fprintf(stderr, "L%d: can't %s, stack empty\n", line_number, msg);
 	exit(EXIT_FAILURE);
 }
 
