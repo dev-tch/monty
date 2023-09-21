@@ -4,7 +4,7 @@
 /*libraries*/
 #include <stdlib.h>
 #include <stdio.h>
-#define MAX_LINE_LENGTH 1024
+#define MAX_LINE_LENGTH 4048
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,6 +37,7 @@ typedef struct instruction_s
 
 List *add_token_to_list(List **head, char *str);
 void cleanupList(List **head);
-void handle_opcode(stack_t **stack, List *list_tok, unsigned int line_number);
-extern char *data_stack;
+void handle_opcode(stack_t **stack, unsigned int line_number);
+/*extern char *data_stack;*/
+extern List  *list_tok;
 #endif

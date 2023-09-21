@@ -7,7 +7,9 @@
 * @argv: arguments vector
 * Return: (0 or exit error code)
 */
+List *list_tok;
 
+void free_dlistint(stack_t *head);
 int main(int ac, char *argv[])
 {
 /*declare variables */
@@ -16,7 +18,7 @@ int numline = 0;
 char line_buffer[MAX_LINE_LENGTH];
 char *sep = " \n\r\t\a", *token = NULL;
 stack_t *stack = NULL;
-List *list_tok = NULL;
+list_tok = NULL;
 if (ac != 2)
 {
 	/*print error and exit*/
@@ -40,9 +42,32 @@ while (fgets(line_buffer, sizeof(line_buffer), stream))
 			add_token_to_list(&list_tok, token);
 		token = strtok(NULL, sep);
 	}
-	handle_opcode(&stack, list_tok, numline);
-	cleanupList(&list_tok);
+
+	if (list_tok && list_tok->arg)
+	{
+		handle_opcode(&stack,  numline);
+		cleanupList(&list_tok);
+	}
 }
+free_dlistint(stack);
 return (0);
+}
+
+/**
+* free_dlistint - free list
+* @head: list
+* Return: void
+**/
+void free_dlistint(stack_t *head)
+{
+stack_t *temp = NULL;
+if (head == NULL)
+return;
+while (head != NULL)
+{
+temp = head->next;
+free(head);
+head = temp;
+}
 }
 
