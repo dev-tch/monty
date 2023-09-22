@@ -3,6 +3,7 @@
 * swap_top_node - swap the two top nodes
 * @stack: doublylist
 * @li: line number
+* Return: void
 */
 void swap_top_node(stack_t **stack, unsigned int li)
 {
@@ -30,6 +31,7 @@ else
 * add_sum_top - sum in second top + remove first top
 * @stack: doublylist
 * @li: line number
+* Return: void
 */
 void add_sum_top(stack_t **stack, unsigned int li)
 {
