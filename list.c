@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
-* dd_token_to_list - add node at the list
+* add_token_to_list - add node at the list
 * @head: pointer of pointers contains the pointer to each node
 *@str: string to be added at the new node
 *Return: the adress of new node

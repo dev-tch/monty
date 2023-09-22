@@ -22,8 +22,8 @@ void add_nodeint_end(stack_t **stack, unsigned int line_number)
 	}
 	if (flag  && conv == 0)
 	{
-		push_err(line_number);
 		free(new_node);
+		push_err(line_number);
 	}
 	new_node->n = conv;
 	if (*stack == NULL)
