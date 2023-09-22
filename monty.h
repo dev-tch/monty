@@ -84,5 +84,6 @@ void empty_err(int line_number, char *msg, int code);
 void short_err(int line_number, char *msg);
 void free_dlistint(stack_t *head);
 void free_data(void);
+void init(FILE *stm);
 /*extern List  *list_tok;*/
 #endif

@@ -29,3 +29,16 @@ void free_data(void)
 	free_dlistint(data.stack);
 	fclose(data.fp);
 }
+/**
+* init - initialization of working data
+* @stm: stream pointer
+* Return: void
+*/
+void init(FILE *stm)
+{
+	data.list_tok = NULL;
+	data.stack = NULL;
+	memset(data.line_buffer, 0, MAX_LINE_LENGTH);
+	data.fp = stm;
+}
+

@@ -7,8 +7,7 @@
 * @argv: arguments vector
 * Return: (0 or exit error code)
 */
-wrk_t data;
-void init(FILE *stm);
+
 int main(int ac, char *argv[])
 {
 /*declare variables */
@@ -50,17 +49,4 @@ while (fgets(data.line_buffer, sizeof(data.line_buffer), stream))
 free_dlistint(data.stack);
 fclose(data.fp); /*Close the stream file*/
 return (0);
-}
-
-/**
-* init - initialization of working data
-* @stm: stream pointer
-* Return: void
-*/
-void init(FILE *stm)
-{
-	data.list_tok = NULL;
-	data.stack = NULL;
-	memset(data.line_buffer, 0, MAX_LINE_LENGTH);
-	data.fp = stm;
 }
