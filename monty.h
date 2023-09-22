@@ -80,7 +80,7 @@ void do_nothing(stack_t **stack, unsigned int li);
 void malloc_err(void);
 void push_err(int line_number);
 void push_err404(int line_number);
-void empty_err(int line_number, char *msg);
+void empty_err(int line_number, char *msg, int code);
 void short_err(int line_number, char *msg);
 void free_dlistint(stack_t *head);
 void free_data(void);

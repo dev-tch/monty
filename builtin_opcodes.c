@@ -73,7 +73,7 @@ stack_t *temp = *stack;
 
 if (!temp)
 {
-	empty_err(li, "pint");
+	empty_err(li, "pint", 11);
 }
 else
 {
@@ -94,7 +94,7 @@ stack_t *temp = *stack;
 
 if (!temp)
 {
-	empty_err(li, "pop");
+	empty_err(li, "pop", 10);
 }
 else
 {

@@ -43,11 +43,17 @@ void push_err404(int line_number)
 * empty_err - error for empty stack
 * @line_number: number of line the instruction exist
 * @msg: opcode
+* @code: error code
 * Return: void
 */
-void empty_err(int line_number, char *msg)
+void empty_err(int line_number, char *msg, int code)
 {
-	fprintf(stderr, "L%d: can't %s, stack empty\n", line_number, msg);
+	/*pop error :  code 10*/
+	if (code == 10)
+		fprintf(stderr, "L%d: can't %s an empty stack\n", line_number, msg);
+	/*pint err: code 11*/
+	else if (code == 11)
+		fprintf(stderr, "L%d: can't %s, stack empty\n", line_number, msg);
 	free_data();
 	exit(EXIT_FAILURE);
 }
