@@ -1,6 +1,4 @@
-#include "more_builtin.h"
-#include "errors.h"
-
+#include "monty.h"
 /**
 * add_nodeint_end  - push data to stack
 * @stack: doublylist stack
@@ -10,25 +8,24 @@
 void add_nodeint_end(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = NULL, *temp = *stack, *prev = NULL;
-	int data = 0, flag = 1;
+	int conv = 0, flag = 1;
 
 	new_node = malloc(sizeof(stack_t));
 	/*malloc failed*/
 	if (new_node == NULL)
 		malloc_err();
-
-	if (list_tok  && list_tok->next)
+	if (data.list_tok  && (data.list_tok)->next)
 	{
 
-		flag = strcmp(list_tok->next->arg, "0");
-		data = atoi(list_tok->next->arg);
+		flag = strcmp((data.list_tok)->next->arg, "0");
+		conv = atoi((data.list_tok)->next->arg);
 	}
-	if (flag  && data == 0)
+	if (flag  && conv == 0)
 	{
 		push_err(line_number);
 		free(new_node);
 	}
-	new_node->n = data;
+	new_node->n = conv;
 	if (*stack == NULL)
 	{
 		*stack = new_node;
@@ -126,7 +123,7 @@ void handle_opcode(stack_t **stack,  unsigned int line_number)
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)
 {
-	if (list_tok && strcmp(list_tok->arg, ops[i].opcode) == 0)
+	if (data.list_tok && strcmp(data.list_tok->arg, ops[i].opcode) == 0)
 	{
 		ops[i].f(stack, line_number);
 		valid =  1;

@@ -6,6 +6,7 @@
 void malloc_err(void)
 {
 fprintf(stderr, "Error: malloc failed\n");
+free_data();
 exit(EXIT_FAILURE);
 }
 /**
@@ -16,6 +17,7 @@ exit(EXIT_FAILURE);
 void push_err(int line_number)
 {
 fprintf(stderr, "L%d: usage: push integer\n", line_number);
+free_data();
 exit(EXIT_FAILURE);
 }
 
@@ -28,11 +30,12 @@ void push_err404(int line_number)
 {
 	char *pb = NULL;
 
-	if (list_tok)
+	if (data.list_tok)
 	{
-		pb = list_tok->arg;
+		pb = data.list_tok->arg;
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, pb);
+	free_data();
 	exit(EXIT_FAILURE);
 }
 
@@ -45,6 +48,7 @@ void push_err404(int line_number)
 void empty_err(int line_number, char *msg)
 {
 	fprintf(stderr, "L%d: can't %s, stack empty\n", line_number, msg);
+	free_data();
 	exit(EXIT_FAILURE);
 }
 
@@ -57,6 +61,7 @@ void empty_err(int line_number, char *msg)
 void short_err(int line_number, char *msg)
 {
 	fprintf(stderr, "L%d: can't %s, stack too short\n", line_number, msg);
+	free_data();
 	exit(EXIT_FAILURE);
 }
 

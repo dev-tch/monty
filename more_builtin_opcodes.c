@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "errors.h"
 /**
 * swap_top_node - swap the two top nodes
 * @stack: doublylist

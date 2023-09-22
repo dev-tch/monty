@@ -1,17 +1,16 @@
-#include "list.h"
-#include "strings.h"
+#include "monty.h"
 /**
-* add_node_end - add node at the list
+* dd_token_to_list - add node at the list
 * @head: pointer of pointers contains the pointer to each node
 *@str: string to be added at the new node
 *Return: the adress of new node
 */
 
-List *add_token_to_list(List **head,  char *str)
+list_t *add_token_to_list(list_t **head,  char *str)
 {
-	List  *new_node, *temp;
+	list_t  *new_node, *temp;
 
-	new_node = malloc(sizeof(List));
+	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
 		return (NULL);
 	/*initilize next node */
@@ -54,9 +53,9 @@ List *add_token_to_list(List **head,  char *str)
 * @head: pointer of pointers to nodes
 *Return: void
 */
-void free_list(List *head)
+void free_list(list_t *head)
 {
-	List *temp;
+	list_t *temp;
 
 	while (head != NULL)
 	{
@@ -72,7 +71,7 @@ void free_list(List *head)
 * @head: list of nodes
 * Return: void
 */
-void cleanupList(List **head)
+void cleanupList(list_t **head)
 {
 	/* condition to ovoid error double free detected*/
 	if (head == NULL || *head == NULL)
