@@ -98,6 +98,14 @@ if (!temp)
 }
 else
 {
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+		return;
+	}
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	free(temp);
 }
 
@@ -108,7 +116,7 @@ else
 * @line_number: number of line the instruction exist
 * Return: void
 */
-void handle_opcode(stack_t **stack,  unsigned int line_number)
+void handle_opcode(stack_t **stack, unsigned int line_number)
 {
 	int len_ops = 0;
 	int i = 0, valid = 0;
@@ -116,6 +124,7 @@ void handle_opcode(stack_t **stack,  unsigned int line_number)
 		{"push", add_nodeint_end},
 		{"pall", print_stack},
 		{"pint", print_top_node},
+		{"pop", remove_top_node},
 		{"swap", swap_top_node},
 		{"add", add_sum_top},
 		{"nop", do_nothing}
