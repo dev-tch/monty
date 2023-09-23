@@ -8,7 +8,7 @@
 void push_node_to_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = NULL;
-	int conv = 0;
+	int conv = 0, flag = 1;
 
 	new_node = malloc(sizeof(stack_t));
 	/*malloc failed*/
@@ -18,10 +18,17 @@ void push_node_to_stack(stack_t **stack, unsigned int line_number)
 	{
 		if (!_isdigit((data.list_tok)->next->arg))
 		{
-			free(new_node);
-			push_err(line_number);
+			flag = 0;
 		}
-		conv = atoi((data.list_tok)->next->arg);
+		else
+			conv = atoi((data.list_tok)->next->arg);
+	}
+	else
+		flag = 0;
+	if (!flag)
+	{
+		free(new_node);
+		push_err(line_number);
 	}
 	new_node->n = conv;
 	if (*stack == NULL)
