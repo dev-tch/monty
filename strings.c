@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdlib.h>
 /**
 * is_space - check character space
@@ -61,4 +62,34 @@ char *_strdup(char *str)
 	/*add character terminating to string*/
 	cpy[i] = '\0';
 	return (cpy);
+}
+
+/**
+ * _isdigit - checks for a digit from 0 to 9
+ * @str: the integer to be checked
+ *
+ * Return: 1 if is digit, 0 otherwise
+ */
+int _isdigit(char *str)
+{
+	int digit = 1;
+	int i = 0;
+
+	if (str == NULL)
+		return (0);
+	while (str[i])
+	{
+		if (i == 0 && (str[i] == '+' || str[i] == '-'))
+		{
+			i++;
+			continue;
+		}
+		if (!isdigit(str[i]))
+		{
+			digit = 0;
+			break;
+		}
+		i++;
+	}
+	return (digit);
 }
