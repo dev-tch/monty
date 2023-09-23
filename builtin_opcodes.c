@@ -1,13 +1,13 @@
 #include "monty.h"
 /**
-* add_nodeint_end  - push data to stack
+* push_node_to_stack  - add node on top of stack (first in list)
 * @stack: doublylist stack
 * @line_number: number of line the instruction exist
 * Return: void
 */
-void add_nodeint_end(stack_t **stack, unsigned int line_number)
+void push_node_to_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node = NULL, *temp = *stack, *prev = NULL;
+	stack_t *new_node = NULL;
 	int conv = 0, flag = 1;
 
 	new_node = malloc(sizeof(stack_t));
@@ -28,23 +28,16 @@ void add_nodeint_end(stack_t **stack, unsigned int line_number)
 	new_node->n = conv;
 	if (*stack == NULL)
 	{
-		*stack = new_node;
 		new_node->prev = NULL;
 		new_node->next = NULL;
 	}
 	else
 	{
-		*stack = new_node;
+		(*stack)->prev = new_node;
 		new_node->prev = NULL;
-		new_node->next = temp;
-		prev = new_node;
-		while (temp != NULL)
-		{
-			temp->prev = prev;
-			prev = temp;
-			temp = temp->next;
-		}
+		new_node->next = *stack;
 	}
+	*stack = new_node;
 }
 /**
 * print_stack  - display elmements of stack in stdout
@@ -121,7 +114,7 @@ void handle_opcode(stack_t **stack, unsigned int line_number)
 	int len_ops = 0;
 	int i = 0, valid = 0;
 	instruction_t ops[] = {
-		{"push", add_nodeint_end},
+		{"push", push_node_to_stack},
 		{"pall", print_stack},
 		{"pint", print_top_node},
 		{"pop", remove_top_node},
