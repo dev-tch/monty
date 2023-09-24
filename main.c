@@ -27,6 +27,12 @@ init(stream);
 while (fgets(data.line_buffer, sizeof(data.line_buffer), stream))
 {
 	numline++;
+	/*treat comments*/
+	if (data.line_buffer[0] == '#')
+	{
+		memset(data.line_buffer, 0, MAX_LINE_LENGTH);
+		continue;
+	}
 	split_data(data.line_buffer, numline);
 	memset(data.line_buffer, 0, MAX_LINE_LENGTH);
 }

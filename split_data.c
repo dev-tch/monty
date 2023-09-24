@@ -20,6 +20,7 @@ void split_data(char *line, int numline)
 
 	while (token != NULL)
 	{
+		inner_token = _strtok_r(token, "#", &inner_saveptr);
 		inner_token = _strtok_r(token, inner_delimiters, &inner_saveptr);
 		opcode = inner_token;
 
