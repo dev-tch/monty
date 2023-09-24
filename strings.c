@@ -80,7 +80,7 @@ int _isdigit(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (i == 0 && (str[0] == '+' || str[0] == '-') && str[1] == '\0')
+		if (i == 0 && (str[0] == '+' || str[0] == '-') && str[1] != '\0')
 		{
 			i++;
 			continue;
