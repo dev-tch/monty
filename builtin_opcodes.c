@@ -130,7 +130,8 @@ void handle_opcode(stack_t **stack, unsigned int line_number)
 		{"div", div_top_node},
 		{"mul", mul_top_node},
 		{"mod", mod_top_node},
-		{"pchar", pchar_top_node}
+		{"pchar", pchar_top_node},
+		{"pstr", pstr_top_node}
 	};
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)

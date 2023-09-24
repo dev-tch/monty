@@ -82,6 +82,7 @@ void div_top_node(stack_t **stack, unsigned int li);
 void mul_top_node(stack_t **stack, unsigned int li);
 void mod_top_node(stack_t **stack, unsigned int li);
 void pchar_top_node(stack_t **stack, unsigned int li);
+void pstr_top_node(stack_t **stack, unsigned int li __attribute__((unused)));
 void malloc_err(void);
 void push_err(int line_number);
 void push_err404(int line_number);
