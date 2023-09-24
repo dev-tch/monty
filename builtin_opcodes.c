@@ -75,7 +75,7 @@ if (!temp)
 }
 else
 {
-	fprintf(stderr, "%d\n", temp->n);
+	fprintf(stdout, "%d\n", temp->n);
 }
 
 }
