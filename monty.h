@@ -79,6 +79,7 @@ void add_sum_top(stack_t **stack, unsigned int li);
 void do_nothing(stack_t **stack, unsigned int li);
 void sub_top_node(stack_t **stack, unsigned int li);
 void div_top_node(stack_t **stack, unsigned int li);
+void mul_top_node(stack_t **stack, unsigned int li);
 void malloc_err(void);
 void push_err(int line_number);
 void push_err404(int line_number);
