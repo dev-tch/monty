@@ -78,7 +78,7 @@ if (!temp  || !temp->next)
 }
 else
 {
-	res = temp->n - temp->next->n;
+	res = temp->next->n - temp->n;
 	temp->next->n = res;
 	temp->next->prev = NULL;
 	*stack = temp->next;
