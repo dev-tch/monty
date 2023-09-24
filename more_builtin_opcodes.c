@@ -85,3 +85,31 @@ else
 	free(temp);
 }
 }
+
+/**
+* div_top_node - divide second top node by first node
+* @stack: doublylist
+* @li: line number
+* Return: void
+*/
+void div_top_node(stack_t **stack, unsigned int li)
+{
+stack_t *temp = *stack;
+int res = 0;
+if (!temp  || !temp->next)
+{
+	short_err(li, "div");
+}
+else
+{
+	if (temp->n == 0)
+	{
+		divbyzero_err(li);
+	}
+	res = temp->next->n / temp->n;
+	temp->next->n = res;
+	temp->next->prev = NULL;
+	*stack = temp->next;
+	free(temp);
+}
+}
