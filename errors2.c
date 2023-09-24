@@ -6,7 +6,7 @@
 */
 void divbyzero_err(int line_number)
 {
-	fprintf(stderr, "L%d: division by zerot\n", line_number);
+	fprintf(stderr, "L%d: division by zero\n", line_number);
 	free_data();
 	exit(EXIT_FAILURE);
 }
