@@ -87,7 +87,7 @@ void pstr_top_node(stack_t **stack, unsigned int li __attribute__((unused)))
 {
 stack_t *temp = *stack;
 char ascii;
-while (temp != NULL && temp->n >= 0 && temp->n <= 127)
+while (temp != NULL && temp->n > 0 && temp->n <= 127)
 {
 	ascii = (char)temp->n;
 	fprintf(stdout, "%c", ascii);
