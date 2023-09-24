@@ -62,3 +62,26 @@ void do_nothing(stack_t **stack, unsigned int li)
 	(void)stack;
 	(void)li;
 }
+/**
+* sub_top_node - sub first node and second node
+* @stack: doublylist
+* @li: line number
+* Return: void
+*/
+void sub_top_node(stack_t **stack, unsigned int li)
+{
+stack_t *temp = *stack;
+int res = 0;
+if (!temp  || !temp->next)
+{
+	short_err(li, "sub");
+}
+else
+{
+	res = temp->n - temp->next->n;
+	temp->next->n = res;
+	temp->next->prev = NULL;
+	*stack = temp->next;
+	free(temp);
+}
+}

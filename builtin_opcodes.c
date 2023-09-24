@@ -125,7 +125,8 @@ void handle_opcode(stack_t **stack, unsigned int line_number)
 		{"pop", remove_top_node},
 		{"swap", swap_top_node},
 		{"add", add_sum_top},
-		{"nop", do_nothing}
+		{"nop", do_nothing},
+		{"sub", sub_top_node}
 	};
 len_ops = sizeof(ops) / sizeof(ops[0]);
 for (i = 0; i < len_ops; i++)
