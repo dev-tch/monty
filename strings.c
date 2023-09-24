@@ -1,5 +1,6 @@
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 /**
 * is_space - check character space
 * @c: a character
@@ -79,7 +80,7 @@ int _isdigit(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (i == 0 && (str[0] == '+' || str[0] == '-') && str[1] != '\0')
+		if (i == 0 && (str[0] == '+' || str[0] == '-') && str[1] == '\0')
 		{
 			i++;
 			continue;
@@ -92,4 +93,47 @@ int _isdigit(char *str)
 		i++;
 	}
 	return (digit);
+}
+
+/**
+* _strtok_r - split with different delimiters in two while loops
+* @line: data to split
+* @sep: delimiters
+* @ptr: pointer to save the position of split
+* Return: token after each split
+*/
+char *_strtok_r(char *line, const char *sep, char **ptr)
+{
+	char *token;
+
+	if (line != NULL)
+	{
+		*ptr = line;
+	}
+
+	if (*ptr == NULL || **ptr == '\0')
+	{
+		return (NULL);
+	}
+
+	while (**ptr != '\0' && strchr(sep, **ptr) != NULL)
+	{
+		(*ptr)++;
+	}
+	if (**ptr == '\0')
+	{
+		return (NULL);
+	}
+	token = *ptr;
+	while (**ptr != '\0' && strchr(sep, **ptr) == NULL)
+	{
+		(*ptr)++;
+	}
+
+	if (**ptr != '\0')
+	{
+		**ptr = '\0';
+		(*ptr)++;
+	}
+	return (token);
 }
