@@ -49,3 +49,30 @@ else
 	free(temp);
 }
 }
+
+/**
+* pchar_top_node - print the char of top stack
+* @stack: doublylist
+* @li: line number
+* Return: void
+*/
+void pchar_top_node(stack_t **stack, unsigned int li)
+{
+stack_t *temp = *stack;
+char ascii;
+
+if (!temp)
+{
+	empty_err(li, "pchar", 11);
+}
+else
+{
+	if (temp->n < 0 || temp->n > 127)
+	{
+		val_err(li, "pchar");
+	}
+	ascii = (char)temp->n;
+	fprintf(stdout, "%c\n", ascii);
+}
+}
+
